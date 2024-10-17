@@ -12,4 +12,11 @@ public class ConstruirXpath extends PageObject {
         String datoFinal = dato + valor + dato2;
         return Target.the(valor).located(By.xpath(datoFinal));
     }
+
+    public static Target construirXpathLi(String valor) {
+        String dato = "//li[@title='";
+        String dato2 = "']";
+        String datoFinal = dato + valor + dato2;
+        return Target.the(valor).located(By.xpath(datoFinal)); //li[@title='Amarillo']
+    }
 }

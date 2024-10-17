@@ -15,7 +15,7 @@ public class SeleccionaEl implements Task {
         this.producto = producto;
     }
 
-    public static SeleccionaEl productoUno(String producto) {
+    public static SeleccionaEl producto(String producto) {
         return Tasks.instrumented(SeleccionaEl.class, producto);
     }
 

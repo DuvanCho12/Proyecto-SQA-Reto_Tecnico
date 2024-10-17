@@ -4,6 +4,7 @@ import co.sqasa.Steps.questions.ValidarElementos;
 import co.sqasa.Steps.tasks.AbrirPag;
 import co.sqasa.Steps.tasks.Ingresa;
 import co.sqasa.Steps.tasks.SeleccionaEl;
+import co.sqasa.Steps.util.ConstruirXpath;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
@@ -31,12 +32,17 @@ public class TestStepDefinition {
 
     @Cuando("^selecciona el producto (.*)$")
     public void seleccionaElProducto(String producto) {
-        OnStage.theActorInTheSpotlight().attemptsTo(SeleccionaEl.productoUno(producto));
+        OnStage.theActorInTheSpotlight().attemptsTo(SeleccionaEl.producto(producto));
     }
 
     @Y("ingresa {int} cantidades")
     public void ingresaCantidades(int cantidad) {
         OnStage.theActorInTheSpotlight().attemptsTo(Ingresa.cantidad(cantidad));
+    }
+
+    @Y("^selecciona el color (.*)")
+    public void seleccionaElColor(String color) {
+        OnStage.theActorInTheSpotlight().attemptsTo(Click.on(ConstruirXpath.construirXpathLi(color)));
     }
 
     @Y("agrega el producto al carrito de compras")
